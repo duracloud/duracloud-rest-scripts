@@ -13,7 +13,7 @@ echo " Before proceeding, by way of setup we will
 "
 enter
 
-echo "--- turn on duplication on change service in duradmin ---"
+echo "--- turn on duplication on change service in duradmin and hit enter ---"
 enter 
 
 echo "--- delete space if exists --- "
