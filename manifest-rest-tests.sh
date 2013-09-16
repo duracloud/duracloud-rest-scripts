@@ -18,9 +18,11 @@ enter
 
 echo "--- delete space if exists --- "
 curl ${ca} -u ${user}:${pword} -X DELETE ${protocol}://${host}/durastore/space-id
+sleep 30
+
 echo "--- creating space --- "
 curl ${ca} -u ${user}:${pword} -X PUT ${protocol}://${host}/durastore/space-id
-
+sleep 30
 
 echo "--- staring audit service  --- "
 curl ${ca} -u ${rootUsername}:${rootPassword} -X POST ${protocol}://${host}/duraboss/audit
@@ -36,8 +38,8 @@ echo  "hello2" > file-2.txt;
 
 curl ${ca} -u ${user}:${pword} -T file-2.txt  ${protocol}://${host}/durastore/space-id/file-2.txt;
 
-echo "--- wait 60 seconds to insure most up to date audit log---" 
-sleep 60 
+echo "--- wait 2 minutes to insure most up to date audit log---" 
+sleep 120 
 
 echo "--- downloading audit log from x-duracloud-admin for space"  
 curl $ca -u ${user}:${pword} ${protocol}://${host}/duraboss/audit/space-id
