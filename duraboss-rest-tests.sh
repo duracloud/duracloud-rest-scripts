@@ -44,18 +44,3 @@ curl $ca -v -u  ${rootUsername}:${rootPassword} -X DELETE ${protocol}://${host}/
 echo -e "\nVerify successful http response code" 
 enter 
  
-echo "--- GET Deployed Services Report ---"
-curl $ca -u  ${user}:${pword} ${protocol}://${host}/duraboss/report/service/deployed
-echo -e "\nVerify deployed services report printed." 
-enter 
-
-echo "--- GET Completed Services Report ---" 
-curl $ca -u  ${user}:${pword} ${protocol}://${host}/duraboss/report/service
-echo -e "\nVerify completed services report printed." 
-enter 
-
-echo "--- GET Services Report List ---"
-curl $ca -u  ${user}:${pword} ${protocol}://${host}/duraboss/report/service/list
-echo -e "\nVerify services report list printed"
-enter
-
