@@ -103,6 +103,18 @@ curl ${ca} -u ${user}:${pword} -I ${protocol}://${host}/durastore/${space0}/test
 echo -e "\nVerify that the metadata of test.txt in $space0 has been printed."
 enter
 
+
+# The following two commands assume that the mill is running and that you have waiting long enough for the queue to be processed.
+# Get Manifest
+echo "--- Get Manifest: Wait a couple of minutes to make sure the queue has been processed  ---"
+curl ${ca} -u ${user}:${pword} ${protocol}://${host}/durastore/manifest/${space0}
+echo -e "\nVerify the manifest has been printed."
+
+# Get Audit Log
+echo "--- Get Audit Log---"
+curl ${ca} -u ${user}:${pword} ${protocol}://${host}/durastore/audit/${space0}
+echo -e "\nVerify the audit log has been printed."
+
 # Delete Content
 echo "--- Delete Content ---"
 curl ${ca} -u ${user}:${pword} -X DELETE ${protocol}://${host}/durastore/${space0}/test.txt
@@ -128,3 +140,5 @@ curl ${ca} -u ${user}:${pword} ${protocol}://${host}/durastore/task
 
 echo -e "\nVerify the tasks list has been printed."
 enter
+
+
