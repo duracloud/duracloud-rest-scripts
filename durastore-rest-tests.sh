@@ -19,9 +19,9 @@ curl ${ca} -u ${user}:${pword} ${protocol}://${host}/durastore/spaces
 echo -e "\nVerify that space listing is printed for primary store."
 enter
 
-curl ${ca} -u ${user}:${pword} ${protocol}://${host}/durastore/spaces?storeID=1
+curl ${ca} -u ${user}:${pword} ${protocol}://${host}/durastore/spaces?storeID=$storeId
 
-echo -e "\nVerify that space listing is printed for store with ID 1."
+echo -e "\nVerify that space listing is printed for store with ID $storeId."
 enter
 
 # Create Space
@@ -31,9 +31,9 @@ curl ${ca} -u ${user}:${pword} -X PUT ${protocol}://${host}/durastore/${space0}
 echo -e "\nVerify that space named $space0 has been created in the primary storage provider."
 enter
 
-curl ${ca} -u ${user}:${pword} -X PUT ${protocol}://${host}/durastore/${space1}?storeID=1
+curl ${ca} -u ${user}:${pword} -X PUT ${protocol}://${host}/durastore/${space1}?storeID=$storeId
 
-echo -e "\nVerify that space named $space1 has been created in storage provider with ID=1" 
+echo -e "\nVerify that space named $space1 has been created in storage provider with ID=$storeId" 
 enter
 
 # Store Content
@@ -55,7 +55,7 @@ curl ${ca} -u ${user}:${pword} ${protocol}://${host}/durastore/${space0}
 echo -e "\nVerify that space $space0 listing has been printed."
 enter
 
-curl ${ca} -u ${user}:${pword} ${protocol}://${host}/durastore/${space1}?storeID=1
+curl ${ca} -u ${user}:${pword} ${protocol}://${host}/durastore/${space1}?storeID=$storeId
 
 echo -e "\nVerify that space $space1 listing has been printed."
 enter
@@ -72,7 +72,7 @@ curl ${ca} -u ${user}:${pword} -I ${protocol}://${host}/durastore/${space0}
 echo "Verify that the metadata listing of $space0 has been printed."
 enter
 
-curl ${ca} -u ${user}:${pword} -I ${protocol}://${host}/durastore/${space1}?storeID=1
+curl ${ca} -u ${user}:${pword} -I ${protocol}://${host}/durastore/${space1}?storeID=$storeId
 
 echo -e "\nVerify that the metadata listing of $space1 has been printed."
 enter
@@ -129,9 +129,9 @@ curl ${ca} -u ${user}:${pword} -X DELETE ${protocol}://${host}/durastore/${space
 echo -e "\nVerify that space $space0 in the primary provider has been deleted."
 enter
 
-curl ${ca} -u ${user}:${pword} -X DELETE ${protocol}://${host}/durastore/${space1}?storeID=1
+curl ${ca} -u ${user}:${pword} -X DELETE ${protocol}://${host}/durastore/${space1}?storeID=$storeId
 
-echo -e "\nVerify that space $space1 in provider 1 has been deleted."
+echo -e "\nVerify that space $space1 in provider $storeId  has been deleted."
 enter
 
 # Get Tasks

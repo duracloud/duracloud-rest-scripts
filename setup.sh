@@ -22,8 +22,11 @@ pword=${pword:-apw}
 read -p "Enter User Role Username (default: user): " -a userUsername 
 userUsername=${userUsername:-user}
 
-read -p "Enter User Role Password (default:l upw):  " -a userPassword
+read -p "Enter User Role Password (default: upw):  " -a userPassword
 userPassword=${userPassword:-upw}
+
+read -p "Enter Primary StoreId  (default: 1):  " -a storeId 
+storeId=${storeId:-1}
 
 read -p "Enter Extra Curl Arguments (e.g. -3 -v): " -a ca 
 
