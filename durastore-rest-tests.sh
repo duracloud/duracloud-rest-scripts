@@ -84,7 +84,7 @@ curl ${ca} -u ${user}:${pword} ${protocol}://${host}/durastore/${space0}/test.tx
 echo -e "\nVerify that the contents of file test.txt (hello) has been retrieved."
 enter
 
-curl ${ca} -u ${user}:${pword} ${protocol}://${host}/durastore/${space0}/test.txt?storeID=0\&attachment=true
+curl ${ca} -u ${user}:${pword} ${protocol}://${host}/durastore/${space0}/test.txt?storeID=${storeId}&attachment=true
 
 echo -e "\nVerify that the file test.txt has been retrieved as an attachment."
 enter
